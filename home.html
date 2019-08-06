@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Tornado Web App</title>
+</head>
+<body>
+    <div>
+    <h1>Tornado web app with authentication delegated to Globus Auth</h1>
+    <p>
+         <br/>
+        {% if user_id %}
+        Hello {{ name }}!<br/>
+        &nbsp; Username: {{ username }}<br/>
+        &nbsp; Email: {{ email }}<br/>
+        &nbsp; UUID: {{ user_id }}<br/>
+        &nbsp; Organization: {{ organization }}<br/>
+        &nbsp; Access token: {{ access_token }}<br/>
+        &nbsp; Refresh token: {{ refresh_token }}<br/>
+        <br/>
+        <a href="/logout">Logout</a>
+        {% else %}
+        <a href="/login">Login to Globus</a>
+        {% end %}
+    </p>
+    </div>
+</body>
+</html>
