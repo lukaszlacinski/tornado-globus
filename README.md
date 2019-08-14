@@ -1,5 +1,5 @@
 # tornado-globus
-Globus Authentication Handler for Tornado Web Framework and an example web app showing how to use thehandler.
+Globus Authentication Handler for Tornado Web Framework and an example web app showing how to use the handler.
 
 ## Install tornado-globus
 
