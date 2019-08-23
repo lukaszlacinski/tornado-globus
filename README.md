@@ -14,7 +14,7 @@ $ pip install 'tornado<6.0'
 Download the tornado-globus sample app
 ```
 (venv)$ git clone git@github.com:lukaszlacinski/tornado-globus.git
-(venv)$ cd tornado-globus
+(venv)$ cd tornado-globus/tornado_v<Tornado_version>
 ```
 ## Register a client
 
