@@ -9,13 +9,14 @@ $ python --version
 Python 3.7.15
 $ python -mvenv  venv
 $ . venv/bin/activate
-$ pip install 'tornado<6.0'
+$ pip install tornado
 ```
 Download the tornado-globus sample app
 ```
 (venv)$ git clone git@github.com:lukaszlacinski/tornado-globus.git
-(venv)$ cd tornado-globus/tornado_v<Tornado_version>
+(venv)$ cd tornado-globus
 ```
+If you still use Tornado v5.x, go to `tornado_v5` directory.
 ## Register a client
 
 All OAuth2 clients need to register with Globus Auth to get a client id and secret. 
