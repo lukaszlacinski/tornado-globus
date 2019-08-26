@@ -41,7 +41,7 @@ class MainHandler(tornado.web.RequestHandler):
         return self.get_secure_cookie("user_id")
 
     def get(self):
-        self.render("../home.html",
+        self.render("home.html",
                     user_id=self.current_user,
                     username=self.get_secure_cookie("username"),
                     email=self.get_secure_cookie("email"),
