@@ -10,9 +10,10 @@ class GlobusOAuth2LoginHandler(tornado.web.RequestHandler,
             tokens = await self.get_tokens(
                 redirect_uri=self.settings["globus_oauth"]["redirect_uri"],
                 code=self.get_argument("code"))
+            expires_at = int(time.time()) + tokens["expires_in"]
             user_info = await self.get_user_info(tokens["access_token"])
             # Save the user with e.g. set_secure_cookie
-            self.set_secure_cookie("user_id", user_info["sub"])
+            self.set_secure_cookie("user_id", user_info["sub"], expires=expires_at-60)
             self.set_secure_cookie("username", user_info["preferred_username"])
             self.set_secure_cookie("email", user_info["email"])
             self.set_secure_cookie("name", user_info["name"])
