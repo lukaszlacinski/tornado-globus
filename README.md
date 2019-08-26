@@ -17,6 +17,7 @@ Download the tornado-globus sample app
 (venv)$ cd tornado-globus
 ```
 If you still use Tornado v5.x, go to `tornado_v5` directory.
+
 ## Register a client
 
 All OAuth2 clients need to register with Globus Auth to get a client id and secret. 
@@ -28,14 +29,23 @@ when redirected to Globus Auth for authentication. Enter the redirect URI:
 and copy Client ID and the generated secret to `settings` in `app.py`.
 
 ## Set up HTTPS reverse proxy
+
 Set up Apache, nginx or another HTTPS server as a reverse proxy to pass all requests to 
 `https://example.com/` to localhost:8888 where the app will be listening on.
 
+For example, on Ubuntu, add the following lines to /etc/apache2/sites-available/default-ssl.conf in `<VirtualHost _default_:443>`
+```
+        ProxyPass / http://127.0.0.1:8888/
+        ProxyPassReverse / http://127.0.0.1:8888/
+```
+Restart Apache.
+
 ## Start the web app
+
 ```
 (venv)$ python -m tornado.autoreload app.py
 ```
-Open `https://example.com` in a web browser. If you do not own `example.com` domain, you may need to add:
+and open `https://example.com/` in a web browser. If you do not own `example.com` domain, you may need to add:
 ```
 127.0.0.1 example.com
 ```
