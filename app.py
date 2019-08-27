@@ -58,7 +58,7 @@ def make_app():
         "globus_oauth": {
             "key": "<Globus_OAuth2_Client_Id>",
             "secret": "<Globus_OAuth2_Client_Secret>",
-            "redirect_uri": "https://example.org/auth/globus",
+            "redirect_uri": "https://example.org/login",
             "scope": [
                 "openid",
                 "profile",
@@ -70,7 +70,6 @@ def make_app():
     handlers = [
         (r"/", MainHandler),
         (r"/login", GlobusOAuth2LoginHandler),
-        (r"/auth/globus", GlobusOAuth2LoginHandler),
         (r"/logout", LogoutHandler),
     ]
     return tornado.web.Application(handlers, **settings)
